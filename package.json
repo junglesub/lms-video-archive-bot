@@ -1,0 +1,20 @@
+{
+  "name": "lms-video-archive-bot",
+  "version": "1.0.0",
+  "description": "LMS 개인 비디오 다운로드 후 보관",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/junglesub/lms-video-archive-bot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/junglesub/lms-video-archive-bot/issues"
+  },
+  "homepage": "https://github.com/junglesub/lms-video-archive-bot#readme"
+}
