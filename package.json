@@ -4,7 +4,8 @@
   "description": "LMS 개인 비디오 다운로드 후 보관",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -16,5 +17,11 @@
   "bugs": {
     "url": "https://github.com/junglesub/lms-video-archive-bot/issues"
   },
-  "homepage": "https://github.com/junglesub/lms-video-archive-bot#readme"
+  "homepage": "https://github.com/junglesub/lms-video-archive-bot#readme",
+  "dependencies": {
+    "axios": "^0.21.4",
+    "dotenv": "^10.0.0",
+    "fast-xml-parser": "^3.20.0",
+    "puppeteer": "^10.2.0"
+  }
 }
