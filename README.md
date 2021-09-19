@@ -10,3 +10,9 @@ LMS 개인 비디오 다운로드 후 보관
 ## 사용방법
 
 추후 추가 예정.
+
+`classes.js` 파일을 업데이트 해야하는데 커밋을 방지하기 위해 다음 명령어를 이용해주세요.
+
+```
+git update-index --assume-unchanged classes.js
+```
