@@ -16,12 +16,18 @@ let fdata = {};
 
 // Logging Setup
 var util = require("util");
-var log_file = fs.createWriteStream(__dirname + "/log", { flags: "w" });
+var log_file = fs.createWriteStream(__dirname + "/log.txt", { flags: "w" });
+var error_file = fs.createWriteStream(__dirname + "/error.txt", { flags: "w" });
 var log_stdout = process.stdout;
 
 console.log = function (d) {
   //
   log_file.write(util.format([...arguments].join(" ")) + "\n");
+  log_stdout.write(util.format([...arguments].join(" ")) + "\n");
+};
+console.error = function (d) {
+  //
+  error_file.write(util.format([...arguments].join(" ")) + "\n");
   log_stdout.write(util.format([...arguments].join(" ")) + "\n");
 };
 

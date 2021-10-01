@@ -13,6 +13,8 @@ data.json
 
 # Logs
 
+log.txt
+error.txt
 log
 logs
 _.log
