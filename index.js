@@ -164,12 +164,27 @@ const downloadVideo = async (browser, classId) => {
                   file.on("finish", function () {
                     console.log("Download Success -", file_name);
                     fdata[content_id] = file.path + " complete";
+
+                    // Check file size
+                    const stats = fs.statSync(file.path);
+                    if (stats.size == 0) {
+                      console.error(
+                        "Something wrong with",
+                        file.path,
+                        " Size == 0"
+                      );
+                      fdata[content_id] = file.path + " no data? (Size = 0)";
+                    }
                     res();
                   });
                 });
               });
             } catch (e) {
-              console.error("Error while downloading pdf file", content_id);
+              console.error(
+                "Error while downloading pdf file",
+                content_id,
+                e.message
+              );
               fdata[content_id] = "error";
             } finally {
               file.close();
@@ -202,12 +217,28 @@ const downloadVideo = async (browser, classId) => {
                   file.on("finish", function () {
                     console.log("Download Success -", title);
                     fdata[content_id] = file.path + " complete";
+
+                    // Check file size
+                    const stats = fs.statSync(file.path);
+                    if (stats.size == 0) {
+                      console.error(
+                        "Something wrong with",
+                        file.path,
+                        " Size == 0"
+                      );
+                      fdata[content_id] = file.path + " no data? (Size = 0)";
+                    }
+
                     res();
                   });
                 });
               });
             } catch (e) {
-              console.error("Error while downloading movie file", content_id);
+              console.error(
+                "Error while downloading movie file",
+                content_id,
+                e.message
+              );
               fdata[content_id] = "error";
             } finally {
               file.close();
@@ -247,6 +278,18 @@ const downloadVideo = async (browser, classId) => {
                           file.on("finish", function () {
                             console.log("Download Success -", title);
                             fdata[content_id] = file.path + " complete";
+
+                            // Check file size
+                            const stats = fs.statSync(file.path);
+                            if (stats.size == 0) {
+                              console.error(
+                                "Something wrong with",
+                                file.path,
+                                " Size == 0"
+                              );
+                              fdata[content_id] =
+                                file.path + " no data? (Size = 0)";
+                            }
                             res();
                           });
                         });
@@ -254,7 +297,8 @@ const downloadVideo = async (browser, classId) => {
                     } catch (e) {
                       console.error(
                         "Error while downloading readystream file",
-                        content_id
+                        content_id,
+                        e.message
                       );
                       fdata[content_id] = "error";
                     } finally {
