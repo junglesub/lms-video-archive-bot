@@ -106,6 +106,12 @@ const downloadVideo = async (browser, classId) => {
   // response 을 json 으로 변환하여 저장한다.
   const data = await response.json();
 
+  const dheader = {
+    headers: {
+      referer: "https://hducc.handong.edu/",
+    },
+  };
+
   // data 는 배열이다. 따라서 loop 를 준비한다.
   await Promise.all(
     data.map(
@@ -158,7 +164,7 @@ const downloadVideo = async (browser, classId) => {
               );
 
               await new Promise((res, rej) => {
-                https.get(dlink, (response) => {
+                https.get(dlink, dheader, (response) => {
                   if (response.statusCode != 200) throw "Status not 200";
                   response.pipe(file);
                   file.on("finish", function () {
@@ -211,7 +217,7 @@ const downloadVideo = async (browser, classId) => {
               );
 
               await new Promise((res, rej) => {
-                https.get(dlink, (response) => {
+                https.get(dlink, dheader, (response) => {
                   if (response.statusCode != 200) rej("Status not 200");
                   response.pipe(file);
                   file.on("finish", function () {
@@ -272,7 +278,7 @@ const downloadVideo = async (browser, classId) => {
                         dlink
                       );
                       await new Promise((res, rej) => {
-                        https.get(dlink, (response) => {
+                        https.get(dlink, dheader, (response) => {
                           if (response.statusCode != 200) rej("Status not 200");
                           response.pipe(file);
                           file.on("finish", function () {
